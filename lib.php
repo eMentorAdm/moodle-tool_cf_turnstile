@@ -93,7 +93,7 @@ function tool_cf_turnstile_validate_extend_signup_form($data) {
         
         // check if it's empty 
         if(empty($cf_turnstile_response)){
-            $errors['cf_turnstile'] = get_string("missing_info","tool_cf_turnstile");
+            $errors['cf_turnstile'] = get_string("bad_request","tool_cf_turnstile");
             return $errors;
         }
 
