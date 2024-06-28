@@ -34,10 +34,9 @@ define ("CF_TURNSTILE_SITE_VERIFY_URL","https://challenges.cloudflare.com/turnst
 
 /**
  * Adds the js and the HTML widget for renders the div block.
- * This is called from the browser, and the resulting reCAPTCHA HTML widget
- * is embedded within the HTML form it was called from.
+ * This is called from the browser, and the resulting Turnstile HTML widget
  *
- * @param string $mform URL for reCAPTCHA API
+ * @param string $mform Form elements from signup page
  * @return void 
  */
 function tool_cf_turnstile_extend_signup_form($mform) {
@@ -71,10 +70,10 @@ function tool_cf_turnstile_extend_signup_form($mform) {
 
 /**
  * Checks the cf response from server side.
- * If the check is succed the request could proceed, otherwise it will back to form page with an error.
+ * If the check succeed the request will proceed, otherwise it will back to form page with an error.
  *
  * @param stdClass $data Object containing all the information sent from the previous request
- * @return array $errors List of errors refered to the form elements
+ * @return array $errors List of errors refered to form elements
  */
 function tool_cf_turnstile_validate_extend_signup_form($data) {
 
@@ -111,9 +110,8 @@ function tool_cf_turnstile_validate_extend_signup_form($data) {
 }
 
 /**
- * Gets the challenge HTML
- * This is called from the browser, and the resulting reCAPTCHA HTML widget
- * is embedded within the HTML form it was called from.
+ * Calls the Cloudflare Turnstile API, checking the ip and the cf response 
+ * Returns true in case of success or false in case the verification failed.
  *
  * @param string $cf_turnstile_response Token generated from the client side
  * @param string $cf_connecting_ip The IP of the requester
