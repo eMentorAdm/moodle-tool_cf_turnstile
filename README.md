@@ -1,44 +1,46 @@
-# Cloudflare Turnstile #
+# Moodle Local Plugin for Cloudflare Turnstile
 
-TODO Describe the plugin shortly here.
+This Moodle plugin integrates Cloudflare Turnstile into your site, providing enhanced protection against spam and abuse. By using Cloudflare Turnstile, this plugin ensures a secure and seamless user experience during the signup process.
 
-TODO Provide more detailed description here.
+## Installation
 
-## Installing via uploaded ZIP file ##
+1. **Download and Install the Plugin:**
+   - Download the plugin files and place them in the appropriate directory in your Moodle installation (e.g., `your_moodle_directory/local/turnstile`).
+   - Navigate to the Site Administration area of your Moodle site.
+   - Go to `Site administration -> Plugins -> Install plugins` and follow the prompts to complete the installation.
 
-1. Log in to your Moodle site as an admin and go to _Site administration >
-   Plugins > Install plugins_.
-2. Upload the ZIP file with the plugin code. You should only be prompted to add
-   extra details if your plugin type is not automatically detected.
-3. Check the plugin validation report and finish the installation.
+2. **Configure Cloudflare Turnstile Keys:**
+   - Navigate to `Site administration -> Server -> Cloudflare Turnstile Settings`.
+   - Enter the required Cloudflare Turnstile credentials (Site Key and Secret Key), which you can obtain from the [Cloudflare Turnstile site](https://www.cloudflare.com/turnstile/).
+   - Select the desired theme (light or dark).
+   - Save your changes.
 
-## Installing manually ##
+## Configuration
 
-The plugin can be also installed by putting the contents of this directory to
+After the initial setup, the plugin requires minimal configuration:
 
-    {your/moodle/dirroot}/admin/tool/cf_turnstile
+- **Turnstile Settings:**
+  - Ensure that the Site Key and Secret Key are correctly entered in the settings page.
+  - Choose the theme that best fits your site's design (light or dark).
+  - Save your settings to apply the changes.
 
-Afterwards, log in to your Moodle site as an admin and go to _Site administration >
-Notifications_ to complete the installation.
+## Usage
 
-Alternatively, you can run
+Once configured, the Cloudflare Turnstile will appear on the user signup form, providing an added layer of security against automated bot signups. The Turnstile widget will render based on the selected theme, ensuring a cohesive look with your site.
 
-    $ php admin/cli/upgrade.php
+## Troubleshooting
 
-to complete the installation from the command line.
+- **Error Messages:**
+  - If users encounter issues during signup related to Turnstile validation, double-check the Site Key and Secret Key.
+  - Ensure that your Moodle site can communicate with the Cloudflare Turnstile service (internet connectivity is required).
 
-## License ##
+- **Widget Visibility:**
+  - If the Turnstile widget is not appearing on the signup form, verify that the plugin is enabled and configured correctly in the settings page.
 
-2024 e-Mentor s.r.l. - service@e-mentor.it
+## Contributing
 
-This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later
-version.
+We welcome contributions to improve this plugin. Please submit issues or pull requests via the [GitHub repository](https://github.com/eMentorAdm/moodle-tool_cf_turnstile).
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+## License
 
-You should have received a copy of the GNU General Public License along with
-this program.  If not, see <https://www.gnu.org/licenses/>.
+This plugin is licensed under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.html).
