@@ -62,9 +62,8 @@ function tool_cf_turnstile_extend_signup_form($mform) {
         // adding turnstile cf to the form
         $mform->addElement('html', "<div class='cf-turnstile' data-theme='$turnstile_theme' data-sitekey='$turnstile_site_key'></div>");
 
-        // hidden used for error handling
-        $mform->addElement('hidden', 'cf_turnstile', '0');
-        $mform->setType('cf_turnstile', PARAM_INT);
+        // used just for error messages
+        $mform->addElement('static', 'cf_turnstile', '', '');
 
     }
     
@@ -83,7 +82,7 @@ function tool_cf_turnstile_validate_extend_signup_form($data) {
     $errors = array();
 
     if($configuration->enabled){
-
+       
         if(!cf_turnstile_check_status_configuration()){
             $errors['cf_turnstile'] = get_string("misconfiguration_msg","tool_cf_turnstile");
             return;
@@ -92,9 +91,9 @@ function tool_cf_turnstile_validate_extend_signup_form($data) {
         // optional because we use moodle error handling 
         $cf_turnstile_response = optional_param("cf-turnstile-response","",PARAM_RAW);
         $connecting_ip = $_SERVER["REMOTE_ADDR"];
-
+        
         // check if it's empty 
-        if(empty($turnstile_response)){
+        if(empty($cf_turnstile_response)){
             $errors['cf_turnstile'] = get_string("missing_info","tool_cf_turnstile");
             return $errors;
         }
@@ -133,7 +132,7 @@ function cf_turnstile_verify_captcha($cf_turnstile_response, $cf_connecting_ip) 
 
     $curl = new curl();
     $response = $curl->post(CF_TURNSTILE_SITE_VERIFY_URL, $params);
-
+    
     if(empty($response)){
         return false;
     }
@@ -145,9 +144,9 @@ function cf_turnstile_verify_captcha($cf_turnstile_response, $cf_connecting_ip) 
 }
 
 /**
- * Checks if the requested params are setted right
+ * Checks if configuration params are setted correctly
  *
- * @return bool - 
+ * @return bool - returns the status of the configuration
  */
 function cf_turnstile_check_status_configuration(){
 
