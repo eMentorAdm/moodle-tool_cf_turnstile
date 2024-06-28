@@ -10,7 +10,7 @@ This Moodle plugin integrates Cloudflare Turnstile into your site, providing enh
    - Go to `Site administration -> Plugins -> Install plugins` and follow the prompts to complete the installation.
 
 2. **Configure Cloudflare Turnstile Keys:**
-   - Navigate to `Site administration -> Server -> Cloudflare Turnstile Settings`.
+   - Navigate to `Site administration -> Server -> Cloudflare Turnstile`.
    - Enter the required Cloudflare Turnstile credentials (Site Key and Secret Key), which you can obtain from the [Cloudflare Turnstile site](https://www.cloudflare.com/products/turnstile/).
    - Select the desired theme (light or dark).
    - Save your changes.
@@ -41,6 +41,3 @@ Once configured, the Cloudflare Turnstile will appear on the user signup form, p
 
 We welcome contributions to improve this plugin. Please submit issues or pull requests via the [GitHub repository](https://github.com/eMentorAdm/moodle-tool_cf_turnstile).
 
-## License
-
-This plugin is licensed under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.html).
