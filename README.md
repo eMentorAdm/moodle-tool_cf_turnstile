@@ -1,11 +1,11 @@
-# Moodle Local Plugin for Cloudflare Turnstile
+# Moodle Plugin for Cloudflare Turnstile
 
 This Moodle plugin integrates Cloudflare Turnstile into your site, providing enhanced protection against spam and abuse. By using Cloudflare Turnstile, this plugin ensures a secure and seamless user experience during the signup process.
 
 ## Installation
 
 1. **Download and Install the Plugin:**
-   - Download the plugin files and place them in the appropriate directory in your Moodle installation (e.g., `your_moodle_directory/local/turnstile`).
+   - Download the plugin files and place them in the appropriate directory in your Moodle installation (e.g., `your_moodle_directory/admin/tool/turnstile`).
    - Navigate to the Site Administration area of your Moodle site.
    - Go to `Site administration -> Plugins -> Install plugins` and follow the prompts to complete the installation.
 
