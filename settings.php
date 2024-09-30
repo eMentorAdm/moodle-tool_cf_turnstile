@@ -28,14 +28,14 @@ defined('MOODLE_INTERNAL') || die();
 $settings = new admin_settingpage('tool_cf_turnstile', get_string('pluginname', 'tool_cf_turnstile'));
 $ADMIN->add('server', $settings);
 
-if($ADMIN->fulltree){
+if ($ADMIN->fulltree) {
 
-    $theme_options = array("light"=>"Light","dark"=>"Dark");
+    $themeoptions = array( "light" => "Light", "dark" => "Dark");
 
     $settings->add(new admin_setting_configcheckbox(
         'tool_cf_turnstile/enabled',
-        get_string('enable', 'tool_cf_turnstile'), 
-        get_string('enable_desc', 'tool_cf_turnstile'), 
+        get_string('enable', 'tool_cf_turnstile'),
+        get_string('enable_desc', 'tool_cf_turnstile'),
         0
     ));
 
@@ -58,7 +58,7 @@ if($ADMIN->fulltree){
         get_string('theme', 'tool_cf_turnstile'),
         get_string('theme_desc', 'tool_cf_turnstile'),
         'light',
-        $theme_options
+        $themeoptions
     ));
 
 }
